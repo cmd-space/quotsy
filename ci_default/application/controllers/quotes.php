@@ -4,8 +4,14 @@ class Quotes extends CI_Controller {
   public function index()
   {
     $this->load->model('Quote');
-    $data['hello'] = $this->Welcome->hello();
-    $this->load->view('index', $data);
+    $this->load->view('index');
+  }
+
+  public function index_json()
+  {
+  	$this->load->model('Quote');
+  	$data['quotes'] = $this->Quote->all();
+  	echo json_encode($data);
   }
 }
 
