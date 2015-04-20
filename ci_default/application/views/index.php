@@ -7,27 +7,15 @@
 	<script>
 		$(document).ready(function()
 		{
-			$('#get_all_button').click(function()
+			$.get('/quotes/index_html', function(res)
 			{
-				$.get('/quotes/index_json', function(res)
-				{
-					var htmlStr = '';
-					for(var i = 0; i < res['quotes'].length; i++)
-					{
-						htmlStr += '<div class="quote">';
-						htmlStr += '<h1>' + res.quotes[i].author + '</h1>';
-						htmlStr += '<p>' + res.quotes[i].quote + '</p>';
-						htmlStr += '</div>';
-					}
-					$('#quotes').html(htmlStr);
-				}, 'json');
+				$('#quotes').html(res);
 			});
 		});
 	</script>
 </head>
 <body>
 	<h1>Quotsy</h1>
-	<button id='get_all_button'>Get All Quotes</button>
 	<div id='quotes'></div>
 </body>
 </html>
