@@ -15,8 +15,9 @@ class Quotes extends CI_Controller {
   	$this->load->view('partials/quotes', $data);
   }
 
-  public function creat()
+  public function create()
   {
+  	$this->load->model('Quote');
   	$new_quote = $this->input->post();
   	$this->Quote->create($new_quote);
   	redirect('/');
