@@ -13,6 +13,13 @@ class Quotes extends CI_Controller {
   	$data['quotes'] = $this->Quote->all();
   	echo json_encode($data);
   }
+
+  public function index_html()
+  {
+  	$this->load->model('Quote');
+  	$data['quotes'] = $this->Quote->all();
+  	$this->load->view('partials/quotes', $data);
+  }
 }
 
 //end of main controller
