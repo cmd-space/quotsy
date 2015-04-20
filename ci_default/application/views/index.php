@@ -11,6 +11,14 @@
 			{
 				$('#quotes').html(res);
 			});
+			$('form').submit(function()
+			{
+				$.post('/quotes/create', $(this).serialize(), function(res)
+				{
+					$('#quotes').html(res);
+				});
+				return false;
+			});
 		});
 	</script>
 	<style>
